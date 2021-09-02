@@ -1,6 +1,6 @@
 // Load books from api
 const searchBooks = () => {
-    // hide appear and hide search result
+    // spinner appear and hide search result
     toggleDisplay('block', 'none');
     resultNotFoundStyle('none');
 
@@ -14,13 +14,11 @@ const searchBooks = () => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayBooks(data.docs));
-    
 }
 // toggle spinner and display
 const toggleDisplay = (spinnerDisplayStyle, resultDisplayStyle) => {
     document.getElementById('spinner').style.display = spinnerDisplayStyle;
     document.getElementById('result').style.display = resultDisplayStyle;
-    
 }
 // toggle result not found 
 const resultNotFoundStyle = notFound => {
@@ -52,23 +50,23 @@ const displayBooks = (books) => {
         books.forEach( book => {
         console.log(book);
         const div = document.createElement('div');
-            div.classList.add('col');
-            if (!book.cover_i) {
-                url = `images/no-book.png`;
-            } else {
-                url = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
-            }
-        div.innerHTML = `<div class="card shadow hover-overlay">
-                        <img src="${url}" class="card-img-top" alt="..."  style="height: 200px;">
-                        <div class="card-body" style="height: 350px; overflow: hidden;">
-                            <h5 class="card-title">Title: ${book.title}</h5>
-                            <h6 class="card-title">Author: ${book.author_name ? book.author_name : 'Unkonwn'}</h6>
-                            <h6 class="card-title">Publish Year: ${book.first_publish_year? book.first_publish_year : 'Unkonwn Publish Year'}</h6>
-                            <p class="card-text">${book.first_sentence? book.first_sentence[0].slice(0, 100) : 'First sentence is not available in the book api. '}</p>
-                        </div>
-                    </div>`;
-            displayBooksResult.appendChild(div);
-            
+        div.classList.add('col');
+        if (!book.cover_i) {
+            url = `images/no-book.png`;
+        } else {
+            url = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
+        }
+        div.innerHTML = `
+            <div class="card shadow hover-overlay">
+                <img src="${url}" class="card-img-top" alt="..."  style="height: 200px;">
+                <div class="card-body" style="height: 350px; overflow: hidden;">
+                    <h5 class="card-title">Title: ${book.title}</h5>
+                    <h6 class="card-title">Author: ${book.author_name ? book.author_name : 'Unkonwn'}</h6>
+                    <h6 class="card-title">Publish Year: ${book.first_publish_year? book.first_publish_year : 'Unkonwn Publish Year'}</h6>
+                    <p class="card-text">${book.first_sentence? book.first_sentence[0].slice(0, 100) : 'First sentence is not available in the book api. '}</p>
+                </div>
+            </div>`;
+        displayBooksResult.appendChild(div);            
     })
     }
     // // hide spinner and appear search result
