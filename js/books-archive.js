@@ -59,7 +59,7 @@ const displayBooks = (books) => {
                             <h5 class="card-title">Title: ${book.title}</h5>
                             <h6 class="card-title">Author: ${book.author_name ? book.author_name : 'Unkonwn'}</h6>
                             <h6 class="card-title">Publish Year: ${book.first_publish_year? book.first_publish_year : 'Unkonwn Publish Day'}</h6>
-                            <p class="card-text">${book.first_sentence? book.first_sentence[0].slice(0, 100) : 'First sentence is not available in the book api'}</p>
+                            <p class="card-text">${book.first_sentence? book.first_sentence[0].slice(0, 100) : 'First sentence is not available in the book api. First sentence is not available in the book api'}</p>
                         </div>
                     </div>`;
             displayBooksResult.appendChild(div);
