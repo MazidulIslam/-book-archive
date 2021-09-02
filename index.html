@@ -13,7 +13,40 @@
 </head>
 
 <body class="bg-gray">
-    
+    <main>
+        <section>
+            <h2 class="text-success text-center my-5">Find Your Desired Books</h2>
+            <!-- Search Field  -->
+            <div class="input-group mb-3 mx-auto w-50">
+                <input id="search-field" type="text" class="form-control" placeholder="Search Books"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button onclick="searchBooks()" class="btn btn-outline-success" type="button"
+                    id="button-addon2">Button</button>
+            </div>
+            <!-- loading spinner -->
+            <div class="spinner-container d-flex justify-content-center">
+                <div id="spinner" class="spinner-grow text-success" style="display: none" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <!--Search Result Not Found  -->
+            <div id="not-found" style="display: none">
+                <h2 class="text-danger text-center">Search result not found</h2>
+            </div>
+        </section>
+        <!-- Search Count Result  -->
+        <section id="result" class="display-books">
+            <div id="search-count">
+                <div class="total-books">
+        
+                </div>
+            </div>
+            <!-- Display Books  -->
+            <div id="display-books" class="row row-cols-1 row-cols-md-5 g-4 mx-2 h-100">
+        
+            </div>
+        </section>
+    </main>
 
     <!-- Js Bundle  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
