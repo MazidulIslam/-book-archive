@@ -54,11 +54,11 @@ const displayBooks = (books) => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `<div class="card shadow hover-zoom">
-                        <img src="https://covers.openlibrary.org/b/id/${book.cover_i ? book.cover_i : 'No Image'}-M.jpg" class="card-img-top" alt="...">
+                        <img src="https://covers.openlibrary.org/b/id/${book.cover_i ? book.cover_i : ''}-M.jpg" class="card-img-top img-fluid" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Title: ${book.title}</h5>
                             <h6 class="card-title">Author: ${book.author_name ? book.author_name : 'Unkonwn'}</h6>
-                            <h6 class="card-title">Publish Year: ${book.first_publish_year? book.first_publish_year : 'Unkonwn Publish Day'}</h6>
+                            <h6 class="card-title">Publish Year: ${book.first_publish_year? book.first_publish_year : 'Unkonwn Publish Year'}</h6>
                             <p class="card-text">${book.first_sentence? book.first_sentence[0].slice(0, 100) : 'First sentence is not available in the book api. First sentence is not available in the book api'}</p>
                         </div>
                     </div>`;
